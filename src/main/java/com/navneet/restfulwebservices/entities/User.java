@@ -38,4 +38,10 @@ public class User {
 	public void setUserBirthDate(LocalDate userBirthDate) {
 		this.userBirthDate = userBirthDate;
 	}
+
+	//To string method to print details of a user using its reference variable
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userBirthDate=" + userBirthDate + "]";
+	}
 }
