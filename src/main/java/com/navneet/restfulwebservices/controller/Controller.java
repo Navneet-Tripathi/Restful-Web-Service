@@ -45,7 +45,7 @@ public class Controller {
 						.path("/{id}")
 						.buildAndExpand(savedUser.getUserId())
 						.toUri();
-		return ResponseEntity.created(location).build();
+		return ResponseEntity.created(location).body(savedUser);
 	}
 	
 	@DeleteMapping(path = "/users/{userId}")
