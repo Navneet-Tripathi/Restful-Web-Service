@@ -40,12 +40,14 @@ public class Controller {
 	
 	@PostMapping(path = "/users")
 	public ResponseEntity<User> addAUser(@Valid @RequestBody User user) {
-		User savedUser = this.userService.addAUser(user);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+		User savedUser = this.userService.addAUser(user); //Adding the user in the user list
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()  //Building the uri so that the user can be fetched 
 						.path("/{id}")
 						.buildAndExpand(savedUser.getUserId())
 						.toUri();
-		return ResponseEntity.created(location).body(savedUser);
+
+		return ResponseEntity.created(location).body(savedUser);  //Building and returning a response entity with location header and response body containing the saved user
 	}
 	
 	@DeleteMapping(path = "/users/{userId}")
