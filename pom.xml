@@ -53,6 +53,12 @@
       		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
       		<version>2.1.0</version>
    		</dependency>
+   		<!-- Jackson format dependency to support XML representation of the resource being sent to the consumer of the api -->
+   		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.15.2</version>	   
+		</dependency>
 
 	</dependencies>
 

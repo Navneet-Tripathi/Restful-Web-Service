@@ -53,7 +53,6 @@ public class UserServiceImpl implements UserService{
 			if(user.getUserId() == userId) {
 				User deletedUser = user;
 				userList.remove(user);
-				userCount--;
 				return deletedUser;
 			}
 		}
