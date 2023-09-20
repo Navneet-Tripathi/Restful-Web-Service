@@ -56,8 +56,12 @@
    		<!-- Jackson format dependency to support XML representation of the resource being sent to the consumer of the api -->
    		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>2.15.2</version>	   
+			<artifactId>jackson-dataformat-xml</artifactId>	   
+		</dependency>
+		<!-- HATEOS dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
 
 	</dependencies>

@@ -4,6 +4,9 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,10 +35,16 @@ public class Controller {
 	}
 	
 	@GetMapping(path = "/users/{userId}")
-	public User retrieveAUser(@PathVariable Long userId) {
+	public EntityModel<User> retrieveAUser(@PathVariable Long userId) {
 		User user= this.userService.getUser(userId);
 		if(user == null) throw new UserNotFoundException("User doesn't exists! User id : "+ userId);
-		return user;
+		//Creating an entity model
+		EntityModel<User> userEntityModel = EntityModel.of(user);
+		//Creating a WebMvcLinkBuilder object to bind links with data
+		WebMvcLinkBuilder link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).retrieveAllUsers()); //Fetching the url associated with retrieveAllUsers() method instead of hard-coding it
+		//Attaching generated link with created entity model
+		userEntityModel.add(link.withRel("all-users"));
+		return userEntityModel;
 	}
 	
 	@PostMapping(path = "/users")
