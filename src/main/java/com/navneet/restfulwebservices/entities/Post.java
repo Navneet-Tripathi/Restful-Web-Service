@@ -1,10 +1,12 @@
 package com.navneet.restfulwebservices.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,9 +23,10 @@ public class Post {
 	@JsonProperty(value = "id")
 	private Long postId;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	@JsonProperty(value = "user_id")
+	@JsonIgnore
 	private User user;
 	
 	@Column(name = "post_heading")

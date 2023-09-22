@@ -68,17 +68,18 @@
 			<artifactId>javamelody-spring-boot-starter</artifactId>
 			<version>2.0.1</version>
 		</dependency>
-		<!-- Spring actuator dependency to monitor application health-->
+		<!-- 
+		//Spring actuator dependency to monitor application health
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		<!-- Dependency for HAL explorer -->
+		// Dependency for HAL explorer
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-explorer</artifactId>
 		</dependency>
-
+		 -->
 	</dependencies>
 
 	<build>
